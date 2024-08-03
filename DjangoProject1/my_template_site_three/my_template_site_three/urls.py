@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-
+from django.conf.urls import handler404
 
 
 urlpatterns = [
@@ -25,3 +25,5 @@ urlpatterns = [
     path('', views.home_view , name= 'home'),
     path('test_app/', include('test_app.urls'))
 ]
+
+handler404 = 'my_template_site_three.views.my_custom_error_view_to_handle_404'

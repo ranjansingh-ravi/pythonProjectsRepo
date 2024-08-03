@@ -1,12 +1,25 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is the Test App Home page</h1>
-    <p><a href= "{% url "test_app:variable" %} ">variable screen</a></p>
-    <p><a href = "{% url 'home' %}">Home Page</a></p>
-</body>
-</html>
+{% extends "home.html" %}
+{% load static %}
+{% block title %} TestApp Page {% endblock title %} TestApp Page
+
+{% block header %}
+<h1 style="color:white;"> Test App Page</h1>
+{% endblock header %}
+
+
+    {% block navigation %}
+    <ul>
+    <li><p><a href= "{% url "test_app:variable" %} " style="color:white;">variable screen</a></p></li>
+    <li><p><a href = "{% url "home" %}" style="color:white;">Home Page</a></p></li>
+    </ul>
+    {% endblock navigation %}
+    
+{% block main %}
+<img src="{% static 'test_app/background_view.jpg' %}" alt = "my image"> 
+<p style="color:white;">This is the playground for main logic of Test App</p>
+{% endblock main %}
+
+{% block footer %}
+<p style="color:white;"> This is the end of Test App</p>
+{% endblock footer %}
+
